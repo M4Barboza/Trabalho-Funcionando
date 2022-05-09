@@ -5,7 +5,7 @@
 
 int pilhaCheia(PILHA p)
 {
-    return (p.topo == MAX);
+    return (p.topo == MAX-1);
 }
 
 int pilhaVazia(PILHA p)
@@ -25,7 +25,7 @@ void empilha(PILHA *p, int n)
     else
     {
         p->topo = p->topo + 1;
-        //printf("\n%d -> p.topo função\n", p->topo);
+        //printf("\n%d -> p.topo funï¿½ï¿½o\n", p->topo);
         p->pilha[p->topo] = n;
         return;
     }

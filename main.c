@@ -4,7 +4,7 @@
 #include "funcoesPilha.c"
 
 
-PILHA p[7];
+PILHA p[8];
 
 bool digitosEstaoEntreUmECinco(int quantidadeDeNumeros){
 
@@ -53,16 +53,13 @@ bool contemMuitosRepitidos(int elementoQSeraInserido) {
 
     int quantDoMesmoElementoJaInserido = 0;
     int tamElemJaInserido = k;
-    //printf("elemen que sera inserido %i\n", elementoQSeraInserido);
     for(int j = 0; j <= tamElemJaInserido; j++) {
-        //printf("%i", elementosJaInseridos[j]);
         if(elementosJaInseridos[j] == elementoQSeraInserido) {
             quantDoMesmoElementoJaInserido++;
         }
     }
 
     elementosJaInseridos[k] = elementoQSeraInserido;
-    //printf("\n------%i vezes repitidas\n", quantDoMesmoElementoJaInserido);
     if(quantDoMesmoElementoJaInserido >= 4 ) { return true; }
     else return false;
 }
@@ -74,9 +71,7 @@ int elementoQueSeraPreenchido(int nDigitados){
 
     while(contemMuitosRepitidos(elementoQSeraInserido) || elementoQSeraInserido > nDigitados) {
         elementoQSeraInserido =  rand()%(nDigitados) + 1;
-        //printf("\nNao foi inserido\n");
     }
-    //printf("\nfoi inserido\n");
     k++;
     return elementoQSeraInserido;
 }
@@ -87,15 +82,11 @@ void printarPilhas(int quantidadeDeNumeros) {
     for (int j = 1; j <= pilhasQueSeraoPrintadas; j++)
     {
         PILHA p2 = p[j];
-        int topo = p[j].topo;
-        //printf("%d -> p.topo", topo);
         printf("\n--------PILHA %d------ \n\n", j);
 
         for (int i = 3; i > -1; i--)
         {
-            //printf("%d -> p.topo", p[j].topo);
             if(i <= p2.topo) { printf("\t| %d |\n", p2.pilha[i]); }
-            //printf("\t| %d |\n", p2.pilha[i]);
             else { printf("\t|   |\n"); }
         }
     }
@@ -104,7 +95,6 @@ void printarPilhas(int quantidadeDeNumeros) {
 
 void trocarElementosDePilha(int pilhaQueSeraRemovidoElem, int pilhaQueSeraAdicionadoElem){
     int elem;
-    //printf("\n%d elemento que saiu\n", elem);
     desempilha(&p[pilhaQueSeraRemovidoElem], &elem);
     empilha(&p[pilhaQueSeraAdicionadoElem], elem);
 }
